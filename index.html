@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Otomasi Surat</title>
+</head>
+<body>
+    <h1>Otomasi Surat Sekolah</h1>
+    <form id="letterForm">
+        <label for="letterType">Jenis Surat:</label>
+        <select id="letterType">
+            <option value="">Pilih Jenis Surat</option>
+            <option value="aktif">Surat Keterangan Siswa Aktif</option>
+            <option value="mutasi_keluar">Surat Mutasi Keluar</option>
+        </select>
+        <label for="recipientName">Nama Penerima:</label>
+        <input type="text" id="recipientName">
+        <button type="button" onclick="generateLetter()">Buat Surat</button>
+    </form>
+    <div id="result"></div>
+</body>
+<script>
+    function generateLetter() {
+        const letterType = document.getElementById('letterType').value;
+        const recipientName = document.getElementById('recipientName').value;
+        if (!letterType || !recipientName) {
+            alert('Isi semua data!');
+            return;
+        }
+        document.getElementById('result').innerHTML = `Surat ${letterType} untuk ${recipientName}`;
+    }
+</script>
+</html>
